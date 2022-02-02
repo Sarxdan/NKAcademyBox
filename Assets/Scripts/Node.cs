@@ -1,13 +1,21 @@
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Node
+public class Node : IComparable<Node>
 {
-    private int _gridX, _gridY;
+    public int _gridX, _gridY;
     public Vector3 Position;
     public bool IsWalkable;
-    public int gCost, hCost;
+    public float gCost = 0; 
+    public float hCost;
     
-    public int fCost {get {return gCost+hCost;}}
+    public float fCost 
+    {
+        get {return gCost+hCost;}
+        set { fCost = value; }
+    }
 
     public Node Parent;
 
@@ -17,5 +25,10 @@ public class Node
         Position = position;
         _gridX = gridX;
         _gridY = gridY;
+    }
+
+    public int CompareTo(Node other)
+    {
+        return fCost.CompareTo(other.fCost);
     }
 }

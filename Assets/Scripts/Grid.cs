@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Grid : MonoBehaviour
 {
     public int gridWidth = 30;
-    public int nodeRadius = 50; // Number of tiles per radius
-    private int _nodeWidth; // Width per tile
+    [FormerlySerializedAs("nodeRadius")] public int nodesPerRow = 50; // Number of tiles per radius
+    public int _nodeWidth; // Width per tile
 
-    private Node[,] _grid;
+    public Node[,] _grid;
 
 
     public Grid()
