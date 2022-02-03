@@ -71,7 +71,7 @@ public class Grid : MonoBehaviour
                     Gizmos.color = Color.black;
                 }
 
-                if (finalPath != null)
+                if (finalPath.Contains(node))
                 {
                     Gizmos.color = Color.red;
                 }
@@ -91,19 +91,27 @@ public class Grid : MonoBehaviour
         yPoint = Mathf.Clamp01(yPoint);
 
         int x = Mathf.RoundToInt((gridSizeX - 1) * xPoint);
-        int y = Mathf.RoundToInt((gridSizeX - 1) * yPoint);*/
+        int y = Mathf.RoundToInt((gridSizeX - 1) * yPoint);
+        
+        return _grid[x, y];*/
+
+        bool xMatch = false;
+        bool yMatch = false;
 
 
-        for (int x = 0; x < gridSizeX; x++)
+        for (int y = 0; y < gridSizeY; y++)
         {
-            for (int y = 0; y < gridSizeY; y++)
+            for (int x = 0; x < gridSizeX; x++)
             {
-                bool xMatch = (pos.x > _grid[x, y].Position.x - nodeRadius) &&
-                             (pos.x < _grid[x, y].Position.x + nodeRadius);
-                bool yMatch = (pos.y > _grid[x, y].Position.y - nodeRadius) &&
-                             (pos.y < _grid[x, y].Position.y + nodeRadius);
+                xMatch = ((pos.x > _grid[x, y].Position.x - nodeRadius) &&
+                             (pos.x < _grid[x, y].Position.x + nodeRadius));
+                yMatch = (pos.z < _grid[x, y].Position.z + nodeRadius) && (pos.z > _grid[x, y].Position.z - nodeRadius);
 
-                if (xMatch && yMatch)
+                if ((pos.x > _grid[x, y].Position.x - nodeRadius) &&
+                    (pos.x < _grid[x, y].Position.x + nodeRadius) 
+                    && 
+                    (pos.z > _grid[x, y].Position.z - nodeRadius) &&
+                    (pos.z < _grid[x, y].Position.z + nodeRadius))
                 {
                     return _grid[x, y];
                 }

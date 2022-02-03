@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d0c56635-956e-4e81-9bac-f57f0517f047" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NKAcademyBox/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NKAcademyBox/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Node.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pathfinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pathfinding.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +18,15 @@
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/aba06c866efd427898fe6d5a65b8962a15d000/49/0074656d/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdc4992cc04a4e77a24a09cd121af77b46a800/b0/1a6254f2/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -36,7 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="XThreadsFramesViewSplitterKey" value="0.37292162" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.14552239" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -77,7 +83,7 @@
       <updated>1643715146887</updated>
       <workItem from="1643715151119" duration="5317000" />
       <workItem from="1643796792964" duration="3904000" />
-      <workItem from="1643804404024" duration="17526000" />
+      <workItem from="1643804404024" duration="30862000" />
     </task>
     <servers />
   </component>
@@ -102,23 +108,11 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Pathfinding.cs</url>
-          <line>43</line>
-          <properties documentPath="D:\Projects\NKAcademyBox\Assets\Scripts\Pathfinding.cs" initialLine="43" containingFunctionPresentation="method 'FindPath'">
-            <startOffsets>
-              <option value="1010" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1050" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#Grid.GetNodeFromPos" memberName="yMatch" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
