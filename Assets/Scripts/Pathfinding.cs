@@ -25,7 +25,8 @@ public class Pathfinding : MonoBehaviour
         Node start = grid.GetNodeFromPos(startPos.position);
         Node goal = grid.GetNodeFromPos(goalPos.position);
 
-        start.fCost = 0;
+        start.gCost = 0;
+        start.hCost = 0;
 
         PriorityQueue open = new PriorityQueue();
         open.Enqueue(start);
@@ -38,10 +39,14 @@ public class Pathfinding : MonoBehaviour
             {
                 for (int x = -1; x <= 1; x++)
                 {
+                    //TODO Clean this shit up
+
+                    int neighbourX = currentNode._gridX + x;
+                    int neighbourY = currentNode._gridY + y;
                     // Check if in range
-                    if (x > 0 && x <= grid.nodesPerRow-1 && y > 0 && y <= grid.nodesPerRow)
+                    if (neighbourX > 0 && neighbourX <= grid.gridSizeX-1 && neighbourY + y > 0 && neighbourY + y <= grid.gridSizeY-1)
                     {
-                        Node node = grid._grid[currentNode._gridX + x, currentNode._gridY + y];
+                        Node node = grid._grid[neighbourX, neighbourY];
                         
                         // Wall check
                         if (!node.IsWalkable)
@@ -59,7 +64,7 @@ public class Pathfinding : MonoBehaviour
                         // Diagonal distance heuristic
                         int dx = Math.Abs(node._gridX - goal._gridX);
                         int dy = Math.Abs(node._gridY - goal._gridY);
-                        float hCost = grid._nodeWidth * (dx + dy) + ((float)Math.Sqrt(grid._nodeWidth * 2) - 2 * grid._nodeWidth) * Math.Min(dx,dy);
+                        float hCost = grid.nodeDiameter * (dx + dy) + ((float)Math.Sqrt(grid.nodeDiameter * 2) - 2 * grid.nodeDiameter) * Math.Min(dx,dy);
                         
                         // Manhattan distance
                         //node.hCost = Math.Abs(node._gridX - goal._gridX) + Math.Abs(node._gridY - goal._gridY);
@@ -90,8 +95,9 @@ public class Pathfinding : MonoBehaviour
             finalPath.Add(current);
             current = current.Parent;
         }
-    }
 
+        grid.finalPath = finalPath;
+    }
 }
 
 

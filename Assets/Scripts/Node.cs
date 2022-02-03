@@ -14,7 +14,6 @@ public class Node : IComparable<Node>
     public float fCost 
     {
         get {return gCost+hCost;}
-        set { fCost = value; }
     }
 
     public Node Parent;
