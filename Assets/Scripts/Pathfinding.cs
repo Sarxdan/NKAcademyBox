@@ -134,6 +134,8 @@ public class Pathfinding : MonoBehaviour
         }
         _finalPath.Reverse();
         _grid.finalPath = _finalPath;
+        // TODO save agent as a member
+        startPos.gameObject.GetComponent<Agent>().NewPath(_finalPath);
     }
 }
 
