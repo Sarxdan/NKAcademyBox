@@ -60,4 +60,7 @@ crashlytics-build.properties
 
 # Jetbrains related
 **/.idea/**/workspace.xml
+**/.idea/workspace.xml **/.idea/tasks.xml
 UserSettings/Layouts/default-2022.dwlt
+
+.idea/.idea.NKAcademyBox/.idea/

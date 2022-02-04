@@ -59,9 +59,19 @@ public class Pathfinding : MonoBehaviour
                             BuildPath(node, start);
                             return;
                         }
+
+                        float gCost;
+                        // Add more gCost if it's a diagonal
+                        if (x != 0 && y != 0)
+                        {
+                            // Cost from start -> current
+                            gCost = currentNode.gCost + 1.5f;
+                        }
+                        else
+                        {
+                            gCost = currentNode.gCost + 1f;
+                        }
                         
-                        // Cost from start -> current
-                        float gCost = currentNode.gCost + 1;
                         
                         // Diagonal distance heuristic
                         int dx = Math.Abs(node._gridX - goal._gridX);

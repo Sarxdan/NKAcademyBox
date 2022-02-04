@@ -25,7 +25,7 @@ public class Grid : MonoBehaviour
 
     public Node[,] _grid;
 
-    private void Start()
+    private void Awake()
     {
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
