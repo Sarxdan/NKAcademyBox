@@ -10,13 +10,33 @@ public class Pathfinding : MonoBehaviour
     public Transform startPos;
     public Transform goalPos;
 
-    private List<Node> _finalPath; // READ FROM BACK TO FRONT
+    public LayerMask groundLayer;
+
+    private List<Node> _finalPath;
 
     private void Start()
     {
         _grid = gridGO.GetComponent<Grid>();
         _finalPath = new List<Node>();
         FindPath();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100, groundLayer))
+            {
+                goalPos.gameObject.transform.position = hit.point + Vector3.up;
+                
+                // Clear and find new path
+                _finalPath.Clear();
+                FindPath();
+            }
+        }
     }
 
     private void FindPath()
@@ -39,10 +59,9 @@ public class Pathfinding : MonoBehaviour
                 {
                     int neighbourX = currentNode._gridX + x;
                     int neighbourY = currentNode._gridY + y;
+                    
                     // Check if in range and actually a neighbour
-                    //TODO Add condition to ignore if it's the currentNode
-
-                    if (neighbourX >= 0 && neighbourX <= _grid.gridSizeX-1 && neighbourY >= 0 && neighbourY <= _grid.gridSizeY-1)
+                    if (neighbourX >= 0 && neighbourX <= _grid.gridSizeX-1 && neighbourY >= 0 && neighbourY <= _grid.gridSizeY-1 && (x != 0 || y!= 0))
                     {
                         Node node = _grid._grid[neighbourX, neighbourY];
                         
@@ -77,9 +96,6 @@ public class Pathfinding : MonoBehaviour
                         int dx = Math.Abs(node._gridX - goal._gridX);
                         int dy = Math.Abs(node._gridY - goal._gridY);
                         float hCost = _grid.nodeDiameter * (dx + dy) + ((float)Math.Sqrt(_grid.nodeDiameter * 2) - 2 * _grid.nodeDiameter) * Math.Min(dx,dy);
-                        
-                        // Manhattan distance
-                        //node.hCost = Math.Abs(node._gridX - goal._gridX) + Math.Abs(node._gridY - goal._gridY);
 
                         // Check if this path to node is better than previously documented
                         if (node.fCost == 0.0f || gCost + hCost < node.fCost)
@@ -97,6 +113,8 @@ public class Pathfinding : MonoBehaviour
                 }
             }
         }
+        
+        Debug.Log("Could not find path");
 
     }
 
@@ -114,7 +132,7 @@ public class Pathfinding : MonoBehaviour
                 break;
             }
         }
-
+        _finalPath.Reverse();
         _grid.finalPath = _finalPath;
     }
 }
