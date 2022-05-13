@@ -11,7 +11,7 @@ public class Agent : MonoBehaviour
     private Node currentTarget;
     private bool atTarget;
 
-    private void Start()
+    private void Awake()
     {
         targetPath = new Queue<Node>();
     }
@@ -40,8 +40,9 @@ public class Agent : MonoBehaviour
     public void NewPath(List<Node> newPath)
     {
         atTarget = false;
-        targetPath.Clear();
         
+        targetPath.Clear(); 
+
         for (int i = 0; i < newPath.Count; i++)
         {
             targetPath.Enqueue(newPath[i]);
